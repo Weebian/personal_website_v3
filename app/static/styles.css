@@ -1,0 +1,58 @@
+a{
+    color: #9DB4C0;
+}
+a:hover{
+    color: #E0FBFC;
+}
+a.active{
+    color: #E0FBFC;
+}
+body{
+    background: #5C6B73;
+    color: #C2DFE3;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h3{
+    margin-bottom: 25px;
+}
+li{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+ul{
+    list-style: none;
+}
+#homebanner{
+    display: flex;
+    flex-wrap: wrap;
+}
+#homebanner div{
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#menu{
+    background: #253237;
+    height: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+#menu a{
+    color: #9DB4C0;
+}
+#menu a:hover{
+    color: #E0FBFC;
+}
+.container{
+    max-width: none;
+}
+.img img{
+    object-fit: cover;
+}
+.col-sm-9{
+    padding: 0;
+}
