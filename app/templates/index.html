@@ -1,19 +1,133 @@
 {% extends "template.html" %}
 {% block content %}
-    <div class="container">
-        <div id="homebanner" class="row">
-            <div class="col img1">
-                <img src="../static/image/p2.jpg">
-            </div>
-            <div class="col">
-                <h1>Welcome!</h1>
-                <h2>I am a</h2>
-                <ul>
-                    <li>Vietnamese Canadian</li>
-                    <li>Cyber Security Enthusiast</li>
-                    <li>Tech Lover</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<div class="row" style="padding-top: 50px;">
+    <h1>Hoang Xuan Bui</h1>
+</div>
+<div id="contact" class="row">
+    <h2>Contacts</h2>
+    <p>
+        {% for con in con_list%}
+        <span>
+            {% if con.url is not none %}
+            <a href="{{ con.url }}">{{ con.display_text}}</a>
+            {% else %}
+            {{ con.display_text}}
+            {% endif %}
+            {% if not loop.last %}
+            |
+            {% endif %}
+        </span>
+        {% endfor %}
+    </p>
+</div>
+<div id="experience" class="row">
+    <h2>Work Experience</h2>
+    {% for exp in exp_list%}
+    <h5>{{ exp.title }}<span style="float: right;">{{exp.start}} - {{exp.end}}</span></h5>
+    <p>{{exp.company}}, {{exp.location}}</p>
+    <p>{{exp.desc}}</p>
+    <ul>
+        {% for bullet in exp.bullets %}
+        <li>{{ bullet }}</li>
+        {% endfor %}
+        {% if exp.urls is not none%}
+        {% for url in exp.urls%}
+        <li><a href="{{ url }}">{{ url }}</a></li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+    {% endfor %}
+</div>
+<div id="education" class="row">
+    <h2>Education</h2>
+    {% for edu in edu_list %}
+    <h5>{{edu.degree}}<span style="float:right">{{edu.start}} - {{edu.end}}</span></h5>
+    <p>{{ edu.uni }}</p>
+    {% endfor %}
+</div>
+<div id="project" class="row">
+    <h2>Projects</h2>
+    {% for project in project_list %}
+    <h5>
+        {{project.title}}
+        <span style="float: right">
+            {{project.start_date}}
+            {% if project.end_date is not none %}
+            - {{ project.end_date }}
+            {% endif %}
+        </span>
+    </h5>
+    <p>{{ project.summary }}</p>
+    {% if project.urls is not none %}
+    <ul>
+        {% for url in project.urls%}
+        <li><a href="{{ url }}">{{ url }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% if project.pics is not none %}
+    {% for pic in project.pics %}
+    <a class="img_url" href="../static/image/{{ pic }}">
+        <img src="../static/image/{{ pic }}">
+    </a>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+</div>
+<h2 id="tech">Technologies & Skills</h2>
+<div id="comm" class="row">
+    <h5>Communication</h5>
+    <p>
+    {% for comm in comm_list%}
+    <span>{{ comm.language }}</span>
+    {% if not loop.last %}
+    |
+    {% endif %}
+    {% endfor %}
+    </p>
+</div>
+<div id="programming" class="row">
+    <h5>Programming</h5>
+    <p>
+    {% for pro in program_list%}
+    <span>{{ pro.language }}</span>
+    {% if not loop.last %}
+    |
+    {% endif %}
+    {% endfor %}
+    </p>
+</div>
+<div id="tools" class="row">
+    <h5>Tools</h5>
+    <p>
+    {% for tool in tool_list%}
+    <span>{{ tool.name }}</span>
+    {% if not loop.last %}
+    |
+    {% endif %}
+    {% endfor %}
+    </p>
+</div>
+<div id="techniques" class="row">
+    <h5>Techniques</h5>
+    <p>
+        {% for tech in technique_list %}
+        <span>{{ tech.name }}</span>
+        {% if not loop.last %}
+        |
+        {% endif %}
+        {% endfor %}
+    </p>
+</div>
+<div id="certs" class="row">
+    <h5>Certifications</h5>
+    <p>
+        {% for cert in cert_list %}
+        <span>{{ cert.name }} - {{ cert.date }}</span>
+        {% if not loop.last %}
+        |
+        {% endif %}
+        {% endfor %}
+    </p>
+</div>
 {% endblock content %}

@@ -4,13 +4,13 @@ const app = {
   data() {
     return {
       menuItems: [
-        {name: "Home", url: ""},
+        {name: "Top of page", url: ""},
+        {name: "Contacts", url:"contact"},
         {name: "Work Experience", url: "experience"},
         {name: "Education", url:"education"},
         {name: "Projects", url:"project"},
-        {name: "Technologies and Skills", url:"tech"},
-        {name: "Contacts", url:"contact"},
-        {name: "Resume", url:"resume"},]
+        {name: "Technologies and Skills", url:"tech"}
+      ]
     }
   },
   delimiters: ['{', '}'],
