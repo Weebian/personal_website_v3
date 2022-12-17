@@ -41,7 +41,7 @@
 <div id="education" class="row">
     <h2>Education</h2>
     {% for edu in edu_list %}
-    <h5>{{edu.degree}}<span style="float:right">{{edu.start}} - {{edu.end}}</span></h5>
+    <h5>{{ edu.study }}({{edu.degree}})<span style="float:right">{{edu.start}} - {{edu.end}}</span></h5>
     <p>{{ edu.uni }}</p>
     {% endfor %}
 </div>
