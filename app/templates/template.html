@@ -34,15 +34,6 @@
 </head>
 <body>
     <div id="app" class="container">
-        <div class="row">
-            <div id="menu" class="col">
-                <h5>
-                    <span v-for="item,index in menuItems" :key="index">
-                        <a v-bind:href="'#' + item.url">{ item.name }</a>
-                    </span>
-                </h5>
-            </div>
-        </div>
         <div class="content">
         {% block content %}
         {% endblock %}

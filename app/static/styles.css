@@ -1,56 +1,41 @@
+/*https://realtimecolors.com/?colors=c2dfe3-253237-a3dff5-000000-47bfeb
+
+    Primary: #c2dfe3
+    Secondary: #253237
+    Primary Button: #a3dff5
+    Secondary Button: #ffffff
+    Accent: #89fd77
+
+*/
 a{
-    color: #9DB4C0;
+    color: #89fd77;
 }
 a:hover{
-    color: #E0FBFC;
+    color: #eaffaf;
 }
 a.active{
-    color: #E0FBFC;
+    color: #eaffaf;
 }
 body{
-    background: #5C6B73;
-    color: #C2DFE3;
+    background: #253237;
+    color: #c2dfe3;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 h1{
-    color: white;
+    color: #ffffff;
 }
 h2{
-    color: #ee6c48;
+    margin-top: 10px;
+    color: #a3dff5;
 }
 h5{
-    color: #83c000;
+    color: #ffffff;
 }
 img{
     max-width: 500px;
 }
 ul{
     margin-left: 25px;
-}
-#contact, #experience, #education, #project, #tech {
-    padding-top: 50px;
-    margin-top: -50px;
-}
-#menu{
-    background: #253237;
-    width: 100%;
-    max-height: 50px;
-    padding: 10px;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    overflow: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-}
-#menu a{
-    color: #9DB4C0;
-    text-decoration: none;
-}
-#menu a:hover{
-    color: #E0FBFC;
-}
-#menu span{
-    margin: 0 30px;
 }
 .container{
     max-width: none;
