@@ -19,7 +19,7 @@ tool_table = Base.classes.tools
 
 @app.route('/')
 def index():
-    certs = db.session.query(cert_table).all()
+    certs = cert_format(db.session.query(cert_table).all())
     comm = db.session.query(comm_table).all()
     con = db.session.query(con_table).all()
     edu = db.session.query(education_table).all()
@@ -74,6 +74,17 @@ def project_format(tab):
             'start_date': field.start_date,
             'end_date': field.end_date,
         }
+    return tab_list[::-1]
+
+def cert_format(tab):
+    tab_list = [None]*len(tab)
+
+    for field in tab:
+        tab_list[field.id-1] = {
+            'name': field.name,
+            'date': field.date,
+        }
+
     return tab_list[::-1]
 
 def data_split(d):
