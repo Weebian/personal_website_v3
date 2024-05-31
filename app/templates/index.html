@@ -1,130 +1,61 @@
 {% extends "template.html" %}
 {% block content %}
 <div class="row">
-    <h1>Hoang Xuan Bui</h1>
-</div>
-<div id="contact" class="row">
-    <h2>Contacts</h2>
-    <p>
-        {% for con in con_list%}
-        <span>
-            {% if con.url is not none %}
-            <a href="{{ con.url }}">{{ con.display_text}}</a>
-            {% else %}
-            {{ con.display_text}}
-            {% endif %}
-            {% if not loop.last %}
-            |
-            {% endif %}
-        </span>
-        {% endfor %}
-    </p>
-</div>
-<div id="experience" class="row">
-    <h2>Work Experience</h2>
-    {% for exp in exp_list%}
-    <h5>{{ exp.title }}<span style="float: right;">{{exp.start}} - {{exp.end}}</span></h5>
-    <p>{{exp.company}}, {{exp.location}}</p>
-    <p>{{exp.desc}}</p>
-    <ul>
-        {% for bullet in exp.bullets %}
-        <li>{{ bullet }}</li>
-        {% endfor %}
-        {% if exp.urls is not none%}
-        {% for url in exp.urls%}
-        <li><a href="{{ url }}">{{ url }}</a></li>
-        {% endfor %}
-        {% endif %}
-    </ul>
-    {% endfor %}
-</div>
-<div id="education" class="row">
-    <h2>Education</h2>
-    {% for edu in edu_list %}
-    <h5>{{ edu.study }} ({{edu.degree}})<span style="float:right">{{edu.start}} - {{edu.end}}</span></h5>
-    <p>{{ edu.uni }}</p>
-    {% endfor %}
-</div>
-<div id="project" class="row">
-    <h2>Projects</h2>
-    {% for project in project_list %}
-    <h5>
-        {{project.title}}
-        <span style="float: right">
-            {{project.start_date}}
-            {% if project.end_date is not none %}
-            - {{ project.end_date }}
-            {% endif %}
-        </span>
-    </h5>
-    <p>{{ project.summary }}</p>
-    {% if project.urls is not none %}
-    <ul>
-        {% for url in project.urls%}
-        <li><a href="{{ url }}">{{ url }}</a></li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% if project.pics is not none %}
-    {% for pic in project.pics %}
-    <a class="img_url" href="../static/image/{{ pic }}">
-        <img src="../static/image/{{ pic }}">
-    </a>
-    {% endfor %}
-    {% endif %}
-    {% endfor %}
-</div>
-<h2 id="tech">Technologies & Skills</h2>
-<div id="comm" class="row">
-    <h5>Communication</h5>
-    <p>
-    {% for comm in comm_list%}
-    <span>{{ comm.language }}</span>
-    {% if not loop.last %}
-    |
-    {% endif %}
-    {% endfor %}
-    </p>
-</div>
-<div id="programming" class="row">
-    <h5>Programming</h5>
-    <p>
-    {% for pro in program_list%}
-    <span>{{ pro.language }}</span>
-    {% if not loop.last %}
-    |
-    {% endif %}
-    {% endfor %}
-    </p>
-</div>
-<div id="tools" class="row">
-    <h5>Tools</h5>
-    <p>
-    {% for tool in tool_list%}
-    <span>{{ tool.name }}</span>
-    {% if not loop.last %}
-    |
-    {% endif %}
-    {% endfor %}
-    </p>
-</div>
-<div id="techniques" class="row">
-    <h5>Techniques</h5>
-    <p>
-        {% for tech in technique_list %}
-        <span>{{ tech.name }}</span>
-        {% if not loop.last %}
-        |
-        {% endif %}
-        {% endfor %}
-    </p>
-</div>
-<div id="certs" class="row">
-    <h5>Certifications</h5>
-    <ul>
-        {% for cert in cert_list %}
-        <li>{{ cert.name }} - {{ cert.date }}</li>
-        {% endfor %}
-    </ul>
+    <div class="card .bg-light picture_card col-sm-3" style="background-color: #632c96; height: 100px; margin: 10px">
+        <a href="/resume">
+            <img class="card-img page_img" src="../static/image/suitcase.png" alt="Card image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Resume</h5>
+            </div>
+        </a>
+    </div>  
+    <div class="card bg-dark text-white picture_card col-sm-3" style="height: 100px; margin: 10px">
+        <a href="/cosplay">
+            <img class="card-img page_img" src="../static/image/scissor.png" alt="Card image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Cosplay</h5>
+            </div>
+        </a>
+    </div>  
+    <div class="card text-white picture_card col-sm-3" style="background-color: #2c5696; height: 100px; margin: 10px">
+        <a href="/panels">
+            <img class="card-img page_img" src="../static/image/speech.png" alt="Card image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Panels</h5>
+            </div>
+        </a>
+    </div>  
+    <div class="card bg-danger text-white picture_card col-sm-3" style="height: 100px; margin: 10px">
+        <a href="/gunpla">
+            <img class="card-img page_img" src="../static/image/gundamhead.png" alt="Card image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Gunpla</h5>
+            </div>
+        </a>
+    </div>  
+    <div class="card bg-success text-white picture_card col-sm-3" style="height: 100px; margin: 10px">
+        <a href="/gardening">
+            <img class="card-img page_img" src="../static/image/wateringcan.png" alt="Card image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Gardening</h5>
+            </div>
+        </a>
+    </div>  
+    <div class="card bg-secondary text-white col-sm-3" style="height: 100px; margin: 10px">
+        <a href="/photography">
+            <img class="card-img page_img" src="../static/image/camera.png" alt="Card image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Photography</h5>
+            </div>
+        </a>
+    </div>
+    <div class="card text-white col-sm-3" style="background-color: #966a2c; height: 100px; margin: 10px">
+        <a href="/woodworking">
+            <img class="card-img page_img" src="../static/image/woodworking.png" alt="Card image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Woodworking</h5>
+            </div>
+        </a>
+    </div>
 </div>
 {% endblock content %}

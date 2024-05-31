@@ -1,0 +1,23 @@
+{% extends "template.html" %}
+{% block content %}
+<h2>Gardening</h2>
+<div id="gardening" class="row">
+    {% for gar in gar_list %}
+    <div class="card bg-dark" style="padding-top: 10px; margin-bottom: 10px;">
+        <h4>{{gar.date}}</h4>
+        {% for plant in gar.arr %}
+            <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+                <details>
+                    <summary style="color: #ffffff; font-size: 1.25rem;">{{ plant.plants }}</summary>
+                    <div class="col">
+                        <a href="{{ plant.pic }}">
+                            <img class="img_url" src="{{ plant.pic }}">
+                        </a>
+                    </div>
+                </details>
+            </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

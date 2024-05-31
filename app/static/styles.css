@@ -31,9 +31,6 @@ h2{
 h5{
     color: #ffffff;
 }
-img{
-    max-width: 500px;
-}
 ul{
     margin-left: 25px;
 }
@@ -52,5 +49,12 @@ ul{
 .img_url{
     display:block;
     margin-bottom: 30px;
-    max-width: 500px;
+    max-inline-size: 100%;
+    block-size: auto;
+}
+.page_img{
+    float: right;
+    height: 80px;
+    width: auto;
+    margin-top: 10px;
 }

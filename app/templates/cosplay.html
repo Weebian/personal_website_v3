@@ -1,0 +1,39 @@
+{% extends "template.html" %}
+{% block content %}
+<h2>Cosplay</h2>
+<p>
+    <i class="fa-solid fa-square text-danger"></i> = Anime North<br>
+    <i class="fa-solid fa-square text-success"></i> = Anime Ottawa<br>
+    <i class="fa-solid fa-square" style="color: #632c96;"></i> = Otakuthon
+</p>
+<div id="cosplay" class="row">
+    {% for cos_yr in cos_list %}
+        <div class="card bg-dark" style="padding-top: 10px; margin-bottom: 10px;">
+            <h4>{{ cos_yr.date }}</h4>
+            {% for cos in cos_yr.arr %}
+                <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+                    <details>
+                        <summary style="color: #ffffff; font-size: 1.25rem;">
+                            {{ cos.name }}
+                            <span style="float: right;">
+                                {% if cos.anime_north == 1 %}
+                                    <i class="fa-solid fa-square text-danger"></i>
+                                {% endif %}
+                                {% if cos.anime_ottawa == 1 %}
+                                    <i class="fa-solid fa-square text-success"></i>
+                                {% endif %}
+                                {% if cos.otakuthon == 1 %}
+                                    <i class="fa-solid fa-square" style="color: #632c96;"></i>
+                                {% endif %}
+                            </span>
+                        </summary>
+                        <a href="{{ cos.pic }}">
+                            <img class="img_url" src="{{ cos.pic }}">
+                        </a>
+                    </details>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

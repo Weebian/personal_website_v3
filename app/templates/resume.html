@@ -1,0 +1,153 @@
+{% extends "template.html" %}
+{% block content %}
+<h2>Resume</h2>
+<div id="experience" class="row">
+    <div class="card bg-dark" style="padding-top: 10px; margin-bottom: 10px;">
+        <h4>Work Experience</h4>
+        {% for exp in exp_list%}
+        <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+            <details>
+                <summary style="color: #ffffff; font-size: 1.25rem;">{{ exp.title }}<span style="float: right;">{{exp.start}} - {{exp.end}}</span></summary>
+                <p>{{exp.company}}, {{exp.location}}</p>
+                <p>{{exp.desc}}</p>
+                <ul>
+                    {% for bullet in exp.bullets %}
+                    <li>{{ bullet }}</li>
+                    {% endfor %}
+                    {% if exp.urls is not none%}
+                    {% for url in exp.urls%}
+                    <li><a href="{{ url }}">{{ url }}</a></li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </details>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div id="education" class="row">
+    <div class="card bg-dark" style="padding-top: 10px; margin-bottom: 10px;">
+        <h4>Education</h4>
+        {% for edu in edu_list %}
+        <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+            <details>
+                <summary style="color: #ffffff; font-size: 1.25rem;">{{ edu.study }} ({{edu.degree}})<span style="float:right">{{edu.start}} - {{edu.end}}</span></summary>
+                <p>{{ edu.uni }}</p>
+            </details>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div id="project" class="row">
+    <div class="card bg-dark" style="padding-top: 10px; margin-bottom: 10px;">
+        <h4>Projects</h4>
+        {% for project in project_list %}
+        <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+            <details>
+                <summary style="color: #ffffff; font-size: 1.25rem;">
+                    {{project.title}}
+                    <span style="float: right">
+                        {{project.start_date}}
+                        {% if project.end_date is not none %}
+                        - {{ project.end_date }}
+                        {% endif %}
+                    </span>
+                </summary>
+                <p>{{ project.summary }}</p>
+                {% if project.urls is not none %}
+                <ul>
+                    {% for url in project.urls%}
+                    <li><a href="{{ url }}">{{ url }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% if project.pics is not none %}
+                {% for pic in project.pics %}
+                <a href="../static/image/{{ pic }}">
+                    <img class="img_url" src="../static/image/{{ pic }}">
+                </a>
+                {% endfor %}
+                {% endif %}
+            </details>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div id="tech" class="row">
+    <div class="card bg-dark" style="padding-top: 10px; margin-bottom: 10px;">
+        <h4 >Technologies & Skills</h4>
+        <div id="comm">
+            <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+                <details>
+                    <summary style="color: #ffffff; font-size: 1.25rem;">Communication</summary>
+                    <p>
+                        {% for comm in comm_list%}
+                        <span>{{ comm.language }}</span>
+                        {% if not loop.last %}
+                        |
+                        {% endif %}
+                        {% endfor %}
+                    </p>
+                </details>
+            </div>
+        </div>
+        <div id="programming">
+            <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+                <details>
+                    <summary style="color: #ffffff; font-size: 1.25rem;">Programming</summary>
+                    <p>
+                    {% for pro in program_list%}
+                    <span>{{ pro.language }}</span>
+                    {% if not loop.last %}
+                    |
+                    {% endif %}
+                    {% endfor %}
+                    </p>
+                </details>
+            </div>
+        </div>
+        <div id="tools">
+            <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+                <details>
+                    <summary style="color: #ffffff; font-size: 1.25rem;">Tools</summary>
+                    <p>
+                    {% for tool in tool_list%}
+                    <span>{{ tool.name }}</span>
+                    {% if not loop.last %}
+                    |
+                    {% endif %}
+                    {% endfor %}
+                    </p>
+                </details>
+            </div>
+        </div>
+        <div id="techniques">
+            <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+                <details>
+                    <summary style="color: #ffffff; font-size: 1.25rem;">Techniques</summary>
+                    <p>
+                        {% for tech in technique_list %}
+                        <span>{{ tech.name }}</span>
+                        {% if not loop.last %}
+                        |
+                        {% endif %}
+                        {% endfor %}
+                    </p>
+                </details>
+            </div>
+        </div>
+        <div id="certs">
+            <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+                <details>
+                    <summary style="color: #ffffff; font-size: 1.25rem;">Certifications</summary>
+                    <ul>
+                        {% for cert in cert_list %}
+                        <li>{{ cert.name }} - {{ cert.date }}</li>
+                        {% endfor %}
+                    </ul>
+                </details>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

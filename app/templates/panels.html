@@ -1,0 +1,50 @@
+{% extends "template.html" %}
+{% block content %}
+<h2>Panels</h2>
+<p>
+    <i class="fa-solid fa-square text-danger"></i> = Anime North<br>
+    <i class="fa-solid fa-square text-success"></i> = Anime Ottawa<br>
+    <i class="fa-solid fa-square" style="color: #632c96;"></i> = Otakuthon
+</p>
+<div id="panels" class="row">
+    {% for panels_yr in panels_list %}
+    <div class="card bg-dark" style="padding-top: 10px; margin-bottom: 10px;">
+        <h4>{{panels_yr.date}}</h4>
+        {% for panel in panels_yr.arr %}
+            <div class="card" style="padding: 10px;margin-bottom: 10px; background-color: #253237;">
+                <details>
+                    <summary style="color: #ffffff; font-size: 1.25rem;">
+                        {{ panel.name }}
+                        <span style="float: right;">
+                            {% if panel.animeNorth == 1 %}
+                            <i class="fa-solid fa-square text-danger"></i>
+                            {% endif %}
+                            {% if panel.animeOttawa == 1 %}
+                            <i class="fa-solid fa-square text-success"></i>
+                            {% endif %}
+                            {% if panel.otakuthon == 1 %}
+                            <i class="fa-solid fa-square" style="color: #632c96;"></i>
+                            {% endif %}
+                        </span>
+                    </summary>
+                    {{ panel.desc }}
+                    <br>
+                    <a href="{{ panel.link }}" target="_blank">Panel Slide deck</a>
+                    {% if panel.copanelists is not none %}
+                        <ul>
+                        {% for copanelist in panel.copanelists %}
+                            <li>{{ copanelist }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <br>
+                    <a href="../static/image/panels/{{ panel.pic }}" target="_blank">
+                        <img class="img_url" style="max-inline-size: 50%;" src="../static/image/panels/{{ panel.pic }}">
+                    </a>
+                </details>
+            </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
