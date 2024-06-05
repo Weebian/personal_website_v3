@@ -58,3 +58,45 @@ ul{
     width: auto;
     margin-top: 10px;
 }
+.bg-purp{
+    background-color: #632c96;
+}
+.bg-purp:hover{
+    background-color: #9a46bb;
+}
+.bg-blk{
+    background-color: #212529;
+}
+.bg-blk:hover{
+    background-color: #47585f;
+}
+.bg-blue{
+    background-color: #2c5696;
+}
+.bg-blue:hover{
+    background-color: #387daa;
+}
+.bg-red{
+    background-color: #dc3545;
+}
+.bg-red:hover{
+    background-color: #ee4452;
+}
+.bg-green{
+    background-color: #198754;
+}
+.bg-green:hover{
+    background-color: #2ca85b;
+}
+.bg-grey{
+    background-color: #6c757d;
+}
+.bg-grey:hover{
+    background-color: #929aa0;
+}
+.bg-brown{
+    background-color: #966a2c;
+}
+.bg-brown:hover{
+    background-color: #af7839;
+}
